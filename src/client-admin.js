@@ -233,5 +233,34 @@
                 win.close();
             }
         });
-    })
+    }),
+    /***/ 17796:
+    /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+        /**
+         * Контроллер табличной кнопки добавления записи
+         * @class {Extension.ui.gridbuttons.AddButtonController}
+         */
+
+        __webpack_require__(52564);
+        Ext.define('Extension.ui.gridbuttons.AddButtonController', {
+            alias: 'controller.extension-ui-grid-buttons-add',
+            extend: 'Extension.ui.gridbuttons.AbstractButtonController',
+
+            /**
+             * Обработчик события нажатия кнопки. Добавляет новую запись.
+             */
+
+            onClickAddButton: function () {
+                var grid = this.getView().getOwner(),
+                    sm = grid.getSelectionModel(),
+                    view = grid.getView(),
+                    store = grid.getStore();
+                store.insert(0, {});
+                sm.select(0);
+                view.focusRow(0);
+            }
+        });
+
+        /***/ }),
 }]);
